@@ -27,7 +27,8 @@ lazy val core = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .settings(
     name := "discipline",
     moduleName := "discipline-core",
-    libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.16.0"
+    libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.16.0",
+    tlFatalWarnings := false // disable fatal warnings in CI, as -Ykind-projector is now deprecated
   )
   .jsSettings(
     tlVersionIntroduced ~= {
